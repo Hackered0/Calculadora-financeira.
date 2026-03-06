@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #ECEF4D;
+        }
+        h1{
+            color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+<h1>Calculadora de abelhas africanas( <i>Apis mellifera</i>) em caixas de modelo langstroth no Brasil 🐝🍯 </h1>
+<br>
+
+
+<span><h2> Informe a quantidade de caixa(s) de abelha(s) 🐝📦🍯</h2></span>
+
+
+
+<input type="number" id="ipt_caixa">
+<br>
+
+
+<span> <h2> Informe a quantidade de quadro(s) de abelha(s) 🌻🐝🍯 </h2></span> 
+
+
+
+<input type="number" id="ipt_quadro">
+<br>
+<br>
+
+<button onclick="mostreMensagem()">Calcular abelha(s)</button><br><br>
+
+<div id="div_alert"></div>
+<div id="div_pi"></div>
+<div id="div_detalhes"></div>
+
+
+<br>
+</body>
+</html>
+
+<script>
+    function mostreMensagem() {
+    
+        
+
+    let frq_ref = 200; 
+
+    let caixa = Number(ipt_caixa.value);
+    let quadro = Number(ipt_quadro.value);
+
+   
+    let ind_ocp_int = (frq_ref / 250);  //Frequencia 
+
+    let ind_ocp_porc = ((frq_ref / 250) * 100); //Frequencia 
+
+
+    let ind_ocp_porc_formt = ind_ocp_porc.toFixed(0);
+
+    let abelhasQueMorreriam = 30000; //Aproximadamente abelhas que morrem por dia 
+
+    let lucroPorAbelha = 0.015; // Aproximadamente lucro por abelha 
+
+    let prejuizo2 = (abelhasQueMorreriam * lucroPorAbelha) * caixa;
+
+    let totalMortesApiario = abelhasQueMorreriam * caixa;
+
+    if (quadro > 0) {
+
+        let pop_max = (quadro * 9000) * caixa; //População maxima que cabe nessa colmeia 
+
+        let pop_min = (quadro * 7000) * caixa; // População minima
+
+        let pop_media = (pop_max + pop_min) / 2; //Media de todas as abelhas que tem 
+
+        
+        div_alert.innerHTML = `<h3 style="color: #540261;"> O número de abelhas que você tem aproximadamente é ${(pop_media)} </h3>`;
+        div_pi.innerHTML = `<h3 style="color: #3B0044;">A quntidade de abelhas que você perde no dia sem o sensor aproximadamente é  ${(totalMortesApiario)}</h3>`;
+        div_detalhes.innerHTML = `<h3 style="color: #3A0143;"> O prejuízo aproximado que você tem sem o sensor aproximadamente R$ ${(prejuizo2)}</h3>`;
+        
+        
+    }
+}
+       
+</script>
